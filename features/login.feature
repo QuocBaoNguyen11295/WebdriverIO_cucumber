@@ -1,12 +1,16 @@
-Feature: The Internet Guinea Pig Website
+@login
+Feature: The user login to Zero Bank
 
-  Scenario Outline: As a user, I can log into the secure area
+Background:
+    Given The user would like to access the Zero Bank
 
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
+  Scenario Outline: As a user, I can log into the Zero Bank
+    When The user logins to the Zero Bank
+    Then The user is in the page
 
+  Scenario Outline: As a user, I cannot log into the Zero Bank
+    When The user logins to Zero Bank with <username>,<password>
+    Then The message <message> will be shown
     Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+        | username | password | message |
+        | Value1   | Value2   | Login and/or password are wrong. |

@@ -4,8 +4,9 @@
   "description": "WebdriverIO with Cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.js"
+    "test": "wdio ./wdio.conf.js --cucumberOpts.tagExpression",
+    "wdio": "wdio run ./wdio.conf.js",
+    "jenkins": "java -jar jenkins.war -httpPort=8080 --enable-future-java"
   },
   "repository": {
     "type": "git",
