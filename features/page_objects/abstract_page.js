@@ -18,6 +18,13 @@ module.exports = class abstract_page {
         await expect(header).toHaveText('Log in to ZeroBank')
     }
 
+    async open_tab_index_page(name_tab){
+        const tab = await $(`strong=${name_tab}`)
+        await tab.waitForClickable()
+        await tab.click()
+    }
+
+
     async pause(timeout){
         await browser.pause(timeout)
     }
