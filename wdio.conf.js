@@ -63,6 +63,7 @@ exports.config = {
         'goog:chromeOptions': { 
             args: ["--headless", "user-agent=...","--disable-gpu","--window-size=1440,735"]
        }
+
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -147,7 +148,8 @@ exports.config = {
         require: [
             './features/step_definition/steps_login_page.js',
             './features/step_definition/steps_forgot_password.js',
-            './features/step_definition/steps_feedback_page.js'
+            './features/step_definition/steps_feedback_page.js',
+            './features/step_definition/steps_search_box.js'
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,
