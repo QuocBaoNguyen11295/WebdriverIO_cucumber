@@ -116,7 +116,13 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: [
+        ['chromedriver', {
+            logFileName: 'wdio-chromedriver.log', // default
+            outputDir: 'driver-logs', // overwrites the config.outputDir
+            args: ['--silent']
+        }]
+      ],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -149,7 +155,8 @@ exports.config = {
             './features/step_definition/steps_login_page.js',
             './features/step_definition/steps_forgot_password.js',
             './features/step_definition/steps_feedback_page.js',
-            './features/step_definition/steps_search_box.js'
+            './features/step_definition/steps_search_box.js',
+            './features/step_definition/steps_pay_saved_payee.js'
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,
